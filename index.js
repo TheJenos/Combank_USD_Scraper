@@ -14,7 +14,9 @@ const configuration={
       datasets: [ {
           label: 'USD Rate',
           data: [],
-          borderWidth: 1
+          borderWidth: 1,
+          fill: false,
+          borderColor: 'black',
       } ]
   },
 };
@@ -35,7 +37,8 @@ requestPromise(url)
     fs.writeFileSync('graph.json', JSON.stringify(graph,null,4));
     const canvasRenderService= new ChartJSNodeCanvas({
       height: 600,
-      width: 800
+      width: 800,
+      backgroundColour: 'white'
     });
     const imageBuffer= await canvasRenderService.renderToBuffer( configuration );
     fs.writeFileSync( "./image.png", imageBuffer );

@@ -8,7 +8,7 @@ import TelegramBot from 'node-telegram-bot-api'
 
 const url = 'https://www.combank.lk/rates-tariff#exchange-rates';
 const graph = JSON.parse(fs.readFileSync('graph.json'));
-const chatId = "-4052662522"
+const chatId = process.env.TELEGRAM_CHAT_ID || "-4051903380"
 const bot = new TelegramBot(process.env.TELEGRAM_TOKEN)
 
 const configuration={

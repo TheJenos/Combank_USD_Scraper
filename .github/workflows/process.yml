@@ -27,6 +27,7 @@ jobs:
       uses: SpicyPizza/create-envfile@v2.0
       with:
         envkey_TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+        envkey_TELEGRAM_CHAT_ID: '-4052662522'
         file_name: .env
         fail_on_empty: false
         sort_keys: false

@@ -97,7 +97,7 @@ const main = async () => {
     });
     const imageBuffer = await canvasRenderService.renderToBuffer(configuration);
     fs.writeFileSync("./image.png", imageBuffer);
-    if (graph[yesterday] != graph[today]) {
+    if (graph[yesterday].comUsdRate != graph[today].comUsdRate) {
       const diff = Math.abs(
         parseFloat(graph[yesterday].comUsdRate) - parseFloat(graph[today].comUsdRate)
       );

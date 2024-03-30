@@ -153,5 +153,10 @@
         "cbUsdBuyRate": "295.5429",
         "cbUsdSellRate": "305.3339",
         "comUsdRate": "296.75"
+    },
+    "2024-03-30": {
+        "cbUsdBuyRate": "295.5429",
+        "cbUsdSellRate": "305.3339",
+        "comUsdRate": "296.75"
     }
 }

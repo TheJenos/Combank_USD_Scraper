@@ -71,17 +71,18 @@ const main = async () => {
       .startOf("d")
       .subtract(1, "d")
       .format("YYYY-MM-DD");
-    const last7nDay = moment()
-      .startOf("d")
-      .subtract(1, "month")
-      .format("YYYY-MM-DD");
-
-    delete graph[last7nDay];
+    
     graph[today] = {
       cbUsdBuyRate,
       cbUsdSellRate,
       comUsdRate
     };
+
+    const dates = Object.keys(graph).sort((a,b) => new Date(a).getTime() - new Date(b).getTime())
+
+    if (dates.length > 30) {
+      delete graph[dates[0]]
+    }
 
     configuration.data.labels = Object.keys(graph);
     configuration.data.datasets[0].data = Object.values(graph).map(x => x.comUsdRate);

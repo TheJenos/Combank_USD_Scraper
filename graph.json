@@ -1,9 +1,4 @@
 {
-    "2024-04-15": {
-        "cbUsdBuyRate": "293.6852",
-        "cbUsdSellRate": "303.3335",
-        "comUsdRate": "294.75"
-    },
     "2024-04-16": {
         "cbUsdBuyRate": "293.7979",
         "cbUsdSellRate": "303.2586",
@@ -158,5 +153,10 @@
         "cbUsdBuyRate": "296.7431",
         "cbUsdSellRate": "306.4280",
         "comUsdRate": "297.50"
+    },
+    "2024-05-17": {
+        "cbUsdBuyRate": "297.3178",
+        "cbUsdSellRate": "307.0361",
+        "comUsdRate": "296.00"
     }
 }

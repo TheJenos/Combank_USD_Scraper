@@ -1,9 +1,4 @@
 {
-    "2025-03-17": {
-        "cbUsdBuyRate": "291.2556",
-        "cbUsdSellRate": "299.7977",
-        "comUsdRate": "293.00"
-    },
     "2025-03-18": {
         "cbUsdBuyRate": "292.5401",
         "cbUsdSellRate": "300.9558",
@@ -157,6 +152,11 @@
     "2025-04-17": {
         "cbUsdBuyRate": "293.9185",
         "cbUsdSellRate": "302.6158",
+        "comUsdRate": "295.00"
+    },
+    "2025-04-18": {
+        "cbUsdBuyRate": "294.3851",
+        "cbUsdSellRate": "303.0313",
         "comUsdRate": "295.00"
     }
 }

@@ -1,4 +1,4 @@
-import requestPromise from "request-promise";
+import axios from "axios";
 import * as cheerio from "cheerio";
 import fs from "fs";
 import moment from "moment";
@@ -9,7 +9,7 @@ import TelegramBot from "node-telegram-bot-api";
 const cbUrl = "https://www.cbsl.gov.lk/cbsl_custom/charts/usd/indexsmall.php";
 const combankUrl = "https://www.combank.lk/rates-tariff#exchange-rates";
 const graph = JSON.parse(fs.readFileSync("graph.json"));
-const chatId = process.env.TELEGRAM_CHAT_ID || "-4051903380";
+const chatId = process.env.TELEGRAM_CHAT_ID || "-1002615908992";
 const bot = new TelegramBot(process.env.TELEGRAM_TOKEN);
 
 const configuration = {
@@ -54,10 +54,14 @@ const configuration = {
 
 const main = async () => {
   try {
-    const [cbHtml, comHtml] = await Promise.all([
-      requestPromise(cbUrl),
-      requestPromise(combankUrl),
+    const [cbHtmlRequest, comHtmlRequest] = await Promise.all([
+      axios.get(cbUrl),
+      axios.get(combankUrl),
     ]);
+
+    const cbHtml = cbHtmlRequest.data;
+    const comHtml = comHtmlRequest.data;
+
     const cbUsdRates = cheerio.load(cbHtml)("body > div:nth-child(3) > p").text().split('\n');
     const cbUsdBuyRate = cbUsdRates[2].trim().split(' ').map(x => x.trim()).filter(x => x.length > 0)[1];
     const cbUsdSellRate = cbUsdRates[3].trim().split(' ').map(x => x.trim()).filter(x => x.length > 0)[1];
@@ -109,7 +113,9 @@ const main = async () => {
           : `Sad news, the USD rate has gone down by Rs. ${diff}. It was Rs. ${graph[yesterday].comUsdRate}, and now it's Rs. ${graph[today].comUsdRate}.`,
       });
     }
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 main();
